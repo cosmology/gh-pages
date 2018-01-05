@@ -131,29 +131,14 @@ export class DashboardComponent implements OnInit {
     // forex api service
     IntervalObservable.create(500000)
       .subscribe(n => {
-      this._forexService.getForexData()
-      .subscribe((currencies) => {
-        this.currencies = currencies;
-        this.filter();
+        this._forexService.getForexData()
+          .subscribe((currencies) => {
+            this.currencies = currencies;
+            this.filter();
+          });
       });
-    });
 
-    this._titleService.setTitle( 'Forex Exchange' );
-
-    /*this._loadingService.register('alerts.load');
-    this._alertsService.query().subscribe((alerts: Object[]) => {
-      this.alerts = alerts;
-      setTimeout(() => {
-        this._loadingService.resolve('items.load');
-      }, 750);
-    }, (error: Error) => {
-      console.log('\nError loading alerts ', error)
-      this._alertsService.staticQuery().subscribe((alerts: Object[]) => {
-        setTimeout(() => {
-          this._loadingService.resolve('alerts.load');
-        }, 750);
-      });
-    });*/
+    this._titleService.setTitle('Forex Exchange');
 
     this._loadingService.register('items.load');
     this._itemsService.query().subscribe((items: Item[]) => {
@@ -171,22 +156,6 @@ export class DashboardComponent implements OnInit {
         }, 750);
       });
     });
-
-    /*this._loadingService.register('products.load');
-    this._productsService.query().subscribe((products: Object[]) => {
-      this.products = products;
-      setTimeout(() => {
-        this._loadingService.resolve('products.load');
-      }, 750);
-    });
-
-    this._loadingService.register('favorites.load');
-    this._productsService.query().subscribe((products: Object[]) => {
-      this.products = products;
-      setTimeout(() => {
-        this._loadingService.resolve('favorites.load');
-      }, 750);
-    });*/
   }
 
   sort(sortEvent: ITdDataTableSortChangeEvent): void {

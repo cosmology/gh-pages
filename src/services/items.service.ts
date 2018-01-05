@@ -70,7 +70,7 @@ export class ItemsService extends RESTService<any> {
   }
 
   public staticQuery(): any {
-    return this._http.get('http://localhost:4000/items')
+    return this._http.get('/items')
     .map((res: Response) => {
 
       console.log('staticQuery res ', res.json());

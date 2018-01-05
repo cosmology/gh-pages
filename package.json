@@ -2,14 +2,14 @@
   "name": "covalent-quickstart",
   "version": "1.0.0",
   "private": true,
-  "description": "Quickstart App with @covalent packages",
+  "description": "Forex Market Demo App with @covalent packages",
   "keywords": [
     "angular",
     "components",
     "reusable"
   ],
   "scripts": {
-    "start": "ng serve",
+    "start": "node server.js",
     "e2e": "ng e2e",
     "lint": "ng lint",
     "reinstall": "rm -rf node_modules tmp deploy dist && yarn install",
@@ -26,7 +26,7 @@
     "node": ">4.4 < 7",
     "npm": ">3"
   },
-  "repository": "https://github.com/cosmology/angular-material-stock-market.git",
+  "repository": "https://github.com/cosmology/gh-pages.git",
   "license": "MIT",
   "author": "Teradata UX team and Ivan Prokic",
   "contributors": [
