@@ -2,7 +2,7 @@
 echo 'Replace api endpoint with heroku'
 
 cat <<'EOF' >> api.config.ts
-export const MOCK_API: string = "https://whispering-beyond-86495.herokuapp.com";
+export const MOCK_API: string = "https://currency-market.herokuapp.com";
 EOF
 
 mv src/config/api.config.ts api.config.ts.default

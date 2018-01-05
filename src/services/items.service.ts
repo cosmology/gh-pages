@@ -30,7 +30,7 @@ export class ItemsService extends RESTService<any> {
   public createItem(item: Item): Observable<Item> {
     console.log('createItem ', item);
     return this._http
-      .post('http://localhost:4000/items', item)
+      .post(MOCK_API+'/items', item)
       .map(response => {
 
         console.log('createItem response ', response)
@@ -60,7 +60,7 @@ export class ItemsService extends RESTService<any> {
 
   public deleteItemById(itemId: string): Observable<null> {
     return this._http
-      .delete('http://localhost:4000/items/' + itemId)
+      .delete(MOCK_API+'/items/' + itemId)
       .map(response => null)
       .catch(this.handleError);
   }
@@ -70,17 +70,20 @@ export class ItemsService extends RESTService<any> {
   }
 
   public staticQuery(): any {
-    return this._http.get('/items')
+
+    console.log('staticQuery get items from ', MOCK_API+'/items');
+
+    return this._http.get(MOCK_API+'/items')
     .map((res: Response) => {
-
-      console.log('staticQuery res ', res.json());
-
       return res.json();
     });
   }
 
   public staticGet(id: string): any {
-    return this._http.get('assets/data/items.json')
+
+    console.log('staticGet get items from ', MOCK_API+'/items');
+
+    return this._http.get(MOCK_API+'/items.json')
     .map((res: Response) => {
       let item: any;
       res.json().forEach((s: any) => {
