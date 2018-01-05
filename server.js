@@ -3,13 +3,27 @@ const app = express();
 const path = require('path');
 const compression = require('compression');
 
-var port = Number(process.env.PORT || 3000);
-
 // json server
 var jsonServer = require('json-server');
+const { exec } = require('child_process');
 var server = jsonServer.create();
 var router = jsonServer.router('db.json');
 var middlewares = jsonServer.defaults();
+
+// Set port (default: 3000). For Heroku, we need to use
+// the port set by the environment variable $PORT
+const port = process.env.PORT || 3000;
+
+const command = `json-server --watch db.json --port ${port}`;
+
+exec(command, (err, stdout, stderr) => {
+  if (err) {
+    console.log('Error running exec', err);
+    return;
+  }
+  console.log('stdout:', stdout);
+  console.log('stderr:', stderr);
+});
 
 server.use(middlewares);
 server.use(router);
@@ -31,4 +45,4 @@ app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
-console.log(`Server listening on ${8080}`);
+console.log(`Server listening on ${port}`);
