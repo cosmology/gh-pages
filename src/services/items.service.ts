@@ -85,7 +85,7 @@ export class ItemsService extends RESTService<any> {
   public staticGet(id: string): any {
 
 
-    let url:string = (environment.production) ? '/assets/data/items.json' : MOCK_API+'/items';
+    let url:string = (environment.production) ? MOCK_API+'/assets/data/items.json' : MOCK_API+'/items';
     console.log('staticGet get items from url:  ', url);
 
     return this._http.get(url)
