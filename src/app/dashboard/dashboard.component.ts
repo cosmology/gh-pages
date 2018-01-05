@@ -127,7 +127,7 @@ export class DashboardComponent implements OnInit {
     this._changeDetectorRef.detectChanges();
 
     // forex api service
-    IntervalObservable.create(500000)
+    IntervalObservable.create(60000)
       .subscribe(n => {
         this._forexService.getForexData()
           .subscribe((currencies) => {
@@ -136,7 +136,7 @@ export class DashboardComponent implements OnInit {
           });
       });
 
-    this._titleService.setTitle('Forex Exchange');
+    this._titleService.setTitle('Covalent Currency Exchange Demo');
 
     this._loadingService.register('items.load');
     this._itemsService.query().subscribe((items: Item[]) => {

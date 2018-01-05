@@ -67,6 +67,14 @@
       "id": "61b6fc0f-af7e-4267-9b3a-b691b05013b3",
       "icon": "description",
       "created": "2018-01-05T14:33:28.090Z"
+    },
+    {
+      "name": "New Japanese Article",
+      "symbol": "JPY/USD",
+      "description": "Some description",
+      "id": "ca897056-f2b5-43ad-af16-637b3013e986",
+      "icon": "description",
+      "created": "2018-01-05T20:41:26.595Z"
     }
   ],
   "alerts": [

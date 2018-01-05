@@ -6,6 +6,7 @@ import { HttpInterceptorService, RESTService } from '@covalent/http';
 import { Router } from "@angular/router";
 import { MOCK_API } from '../config/api.config';
 import 'rxjs/add/operator/map';
+import {environment} from "../environments/environment";
 
 export interface IItem {
   name: '';
@@ -71,9 +72,11 @@ export class ItemsService extends RESTService<any> {
 
   public staticQuery(): any {
 
-    console.log('staticQuery get items from ', MOCK_API+'/items');
+    let url:string = (environment.production) ? '/assets/data/items.json' : MOCK_API+'/items';
 
-    return this._http.get(MOCK_API+'/items')
+    console.log('staticQuery get items from url: ', url);
+
+    return this._http.get(url)
     .map((res: Response) => {
       return res.json();
     });
@@ -81,9 +84,11 @@ export class ItemsService extends RESTService<any> {
 
   public staticGet(id: string): any {
 
-    console.log('staticGet get items from ', MOCK_API+'/items');
 
-    return this._http.get(MOCK_API+'/items.json')
+    let url:string = (environment.production) ? '/assets/data/items.json' : MOCK_API+'/items';
+    console.log('staticGet get items from url:  ', url);
+
+    return this._http.get(url)
     .map((res: Response) => {
       let item: any;
       res.json().forEach((s: any) => {

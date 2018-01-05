@@ -1,46 +1,50 @@
-[
+"items": [
   {
-    "item_id": "1",
-    "name": "U.S. Dollar Falls as Funding Need Ease",
-    "symbol": "CHF/USD",
-    "description": "The U.S. dollar slipped Tuesday to open a holiday-shortened week.",
-    "icon": "description",
-    "created" : "07/13/2016 11:05 AM"
-  },{
-    "item_id": "2",
-    "name": "U.S. Dollar Weakens Versus Canadian Currency",
-    "symbol": "GBP/USD",
-    "description": "The dollar inched higher Friday, as investors reacted to renewed political unrest in Europe.",
-    "icon": "description",
-    "created" : "07/01/2016 03:41 PM"
-  },{
-    "item_id": "3",
-    "name": "Dollar Higher on Renewed Political Unrest in Europe",
-    "symbol": "EUR/USD",
-    "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
-    "icon": "description",
-    "created" : "06/15/2016 09:02 AM"
-  },
-  {
-    "item_id": "4",
+    "id": "2",
     "name": "Dollar Edged Lower As Investors Analyze Details of Tax Overhaul",
     "symbol": "GBP/USD",
     "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
     "icon": "description",
-    "created" : "07/13/2017 11:05 AM"
-  },{
-    "item_id": "5",
-    "name": "U.S. Dollar Weakens Versus Canadian Currency",
-    "symbol": "EUR/USD",
-    "description": "The dollar inched higher Friday, as investors reacted to renewed political unrest in Europe.",
-    "icon": "description",
-    "created" : "07/01/2017 03:41 PM"
-  },{
-    "item_id": "6",
+    "created": "07/13/2017 11:05 AM"
+  },
+  {
+    "id": "3",
     "name": "Dollar Higher on Renewed Political Unrest in Europe",
-    "symbol": "CHF/USD",
-    "description": "The U.S. dollar edged lower Tuesday with investors assessing the direction of the currency as the Republican tax cut package moved closer to becoming law.",
+    "symbol": "EUR/USD",
+    "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
     "icon": "description",
-    "created" : "06/15/2017 09:02 AM"
+    "created": "06/15/2016 09:02 AM"
+  },
+  {
+    "id": "4",
+    "name": "Dollar Edged Lower As Investors Analyze Details of Tax Overhaul",
+    "symbol": "GBP/USD",
+    "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
+    "icon": "description",
+    "created": "07/13/2017 11:05 AM"
+  },
+  {
+    "id": "5",
+    "name": "Dollar Higher on Renewed Political Unrest in Europe",
+    "symbol": "EUR/USD",
+    "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
+    "icon": "description",
+    "created": "06/15/2016 09:02 AM"
+  },
+  {
+    "name": "Norweigan krone on the rise",
+    "symbol": "NOK/USD",
+    "description": "Some textLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "id": "3021ff35-90bd-455b-9af4-e440bf7fdc37",
+    "icon": "description",
+    "created": "2018-01-05T08:05:00.524Z"
+  },
+  {
+    "name": "Japanese yen on the rise",
+    "symbol": "JPY/USD",
+    "description": "Our global network of financial institutions gives you the advantage of competitive rates as well as liquidity - even during times of market stress - helping your company keep the cash flow flowing.",
+    "id": "61b6fc0f-af7e-4267-9b3a-b691b05013b3",
+    "icon": "description",
+    "created": "2018-01-05T14:33:28.090Z"
   }
 ]
