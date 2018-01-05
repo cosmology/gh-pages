@@ -1,21 +1,4 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "currencies": [
     {
       "id": 1,
@@ -71,7 +54,7 @@
     },
     {
       "name": "article 1",
-      "symbol": "GBPUSD",
+      "symbol": "GBP/USD",
       "description": "aasas",
       "id": "61b302c5-7189-4b68-ab66-776f53361998",
       "icon": "description",
