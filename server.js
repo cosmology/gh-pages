@@ -25,11 +25,11 @@ exec(command, (err, stdout, stderr) => {
   console.log('stderr:', stderr);
 });
 
-//server.use(middlewares);
+/*server.use(middlewares);
 server.use(router);
 server.listen(port, function () {
   console.log('JSON Server is running')
-});
+});*/
 
 // Gzip
 //app.use(compression());
