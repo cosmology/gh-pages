@@ -4,7 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry, MatDialog } from '@angular/material';
 import { DatePipe } from '@angular/common';
 import { Router } from "@angular/router";
-import { single, multi, times } from './data';
+import { multi, times } from './data';
 import { TdLoadingService, TdMediaService, TdDigitsPipe, TdLayoutManageListComponent, TdRotateAnimation } from '@covalent/core';
 
 // table
@@ -33,7 +33,6 @@ export class DashboardComponent implements OnInit {
   items: Item[];
 
   // Chart
-  single: any[];
   multi: any[];
 
   view: any[] = [700, 400];
@@ -46,7 +45,7 @@ export class DashboardComponent implements OnInit {
   showXAxisLabel: boolean = true;
   xAxisLabel: string = '';
   showYAxisLabel: boolean = true;
-  yAxisLabel: string = 'Sales';
+  yAxisLabel: string = 'Rate';
 
   colorScheme: any = {
     domain: ['#1565C0', '#2196F3', '#81D4FA', '#FF9800', '#EF6C00'],
@@ -119,7 +118,7 @@ export class DashboardComponent implements OnInit {
                   this.currencies = currencies;
                   this.filter();
               });
-              Object.assign(this, {single, multi, times})
+              Object.assign(this, {multi, times})
   }
 
   ngOnInit(): void {

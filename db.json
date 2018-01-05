@@ -69,12 +69,12 @@
       "created": "2018-01-04T23:00:58.270Z"
     },
     {
-      "name": "article 1",
-      "symbol": "XAU/USD",
-      "description": "asdasd",
-      "id": "f7ef2fa0-0baf-4fd2-89f3-335000f598db",
+      "name": "Norweigan krone on the rise",
+      "symbol": "NOK/USD",
+      "description": "Some textLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "id": "3021ff35-90bd-455b-9af4-e440bf7fdc37",
       "icon": "description",
-      "created": "2018-01-04T23:13:20.720Z"
+      "created": "2018-01-05T08:05:00.524Z"
     }
   ],
   "alerts": [

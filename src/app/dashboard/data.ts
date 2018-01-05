@@ -1,119 +1,132 @@
-export let single: any = [
-  {
-    'name': 'Germany',
-    'value': 8940000,
-  },
-  {
-    'name': 'USA',
-    'value': 5000000,
-  },
-  {
-    'name': 'France',
-    'value': 7200000,
-  },
-];
+import * as moment from 'moment';
 
 export let multi: any = [
   {
-    'name': 'Container Apps',
+    'name': 'NOK/USD',
     'series': [
       {
-        'value': 2469,
-        'name': '2016-09-15T19:25:07.773Z',
+        'value': 0.159195,
+        'name': moment(1420070399999),
       },
       {
-        'value': 3619,
-        'name': '2016-09-17T17:16:53.279Z',
+        'value': 0.124226,
+        'name': moment(1451606399999),
       },
       {
-        'value': 3885,
-        'name': '2016-09-15T10:34:32.344Z',
+        'value': 0.119053,
+        'name': moment(1483228799999),
       },
       {
-        'value': 4289,
-        'name': '2016-09-19T14:33:45.710Z',
+        'value': 0.121066,
+        'name': moment(1514764799999),
       },
       {
-        'value': 3309,
-        'name': '2016-09-12T18:48:58.925Z',
+        'value': 0.122689,
+        'name': moment(1514984400000),
       },
     ],
   },
   {
-    'name': 'Alerting Dashboard',
+    'name': 'AUD/USD',
     'series': [
       {
-        'value': 2452,
-        'name': '2016-09-15T19:25:07.773Z',
+        'value': 0.902813,
+        'name': moment(1420070399999),
       },
       {
-        'value': 4938,
-        'name': '2016-09-17T17:16:53.279Z',
+        'value': 0.752124,
+        'name': moment(1451606399999),
       },
       {
-        'value': 4110,
-        'name': '2016-09-15T10:34:32.344Z',
+        'value': 0.743664,
+        'name': moment(1483228799999),
       },
       {
-        'value': 3828,
-        'name': '2016-09-19T14:33:45.710Z',
+        'value': 0.766830,
+        'name': moment(1514764799999),
       },
       {
-        'value': 5772,
-        'name': '2016-09-12T18:48:58.925Z',
+        'value': 0.783146,
+        'name': moment(1515070800000),
       },
     ],
   },
   {
-    'name': 'Streaming Data',
+    'name': 'GBP/USD',
     'series': [
       {
-        'value': 4022,
-        'name': '2016-09-15T19:25:07.773Z',
+        'value': 1.647701,
+        'name': moment(1420070399999),
       },
       {
-        'value': 2345,
-        'name': '2016-09-17T17:16:53.279Z',
+        'value': 1.528504,
+        'name': moment(1451606399999),
       },
       {
-        'value': 5148,
-        'name': '2016-09-15T10:34:32.344Z',
+        'value': 1.355673,
+        'name': moment(1483228799999),
       },
       {
-        'value': 6868,
-        'name': '2016-09-19T14:33:45.710Z',
+        'value': 1.288611,
+        'name': moment(1514764799999),
       },
       {
-        'value': 5415,
-        'name': '2016-09-12T18:48:58.925Z',
+        'value': 1.353578,
+        'name': moment(1515070800000),
       },
     ],
   },
   {
-    'name': 'Database Queries',
+    'name': 'CHF/USD',
     'series': [
       {
-        'value': 6194,
-        'name': '2016-09-15T19:25:07.773Z',
+        'value': 1.094111,
+        'name': moment(1420070399999),
       },
       {
-        'value': 6585,
-        'name': '2016-09-17T17:16:53.279Z',
+        'value': 1.040833,
+        'name': moment(1451606399999),
       },
       {
-        'value': 6857,
-        'name': '2016-09-15T10:34:32.344Z',
+        'value': 1.015257,
+        'name': moment(1483228799999),
       },
       {
-        'value': 2545,
-        'name': '2016-09-19T14:33:45.710Z',
+        'value': 1.016190,
+        'name': moment(1514764799999),
       },
       {
-        'value': 5986,
-        'name': '2016-09-12T18:48:58.925Z',
+        'value': 1.026089,
+        'name': moment(1515070800000),
       },
     ],
   },
+  {
+    'name': 'EUR/USD',
+    'series': [
+      {
+        'value': 0.753602,
+        'name': moment(1420070399999),
+      },
+      {
+        'value': 0.901699,
+        'name': moment(1451606399999),
+      },
+      {
+        'value': 0.904179,
+        'name': moment(1483228799999),
+      },
+      {
+        'value': 0.886758,
+        'name': moment(1514764799999),
+      },
+      {
+        'value': 0.831475,
+        'name': moment(1514984400000),
+      },
+    ],
+  },
+  /*
   {
     'name': 'NoSQL Database',
     'series': [
@@ -138,7 +151,7 @@ export let multi: any = [
         'name': '2016-09-12T18:48:58.925Z',
       },
     ],
-  },
+  },*/
 ];
 
 export let times: any = [

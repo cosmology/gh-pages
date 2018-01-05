@@ -14,7 +14,7 @@ var middlewares = jsonServer.defaults();
 // the port set by the environment variable $PORT
 const port = process.env.PORT || 3000;
 
-const command = `json-server --watch db.json --port ${4000}`;
+/*const command = `json-server --watch db.json --port ${4000}`;
 
 exec(command, (err, stdout, stderr) => {
   if (err) {
@@ -23,7 +23,7 @@ exec(command, (err, stdout, stderr) => {
   }
   console.log('stdout:', stdout);
   console.log('stderr:', stderr);
-});
+});*/
 
 server.use(middlewares);
 server.use(router);

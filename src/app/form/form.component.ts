@@ -34,8 +34,8 @@ export class FormComponent implements AfterViewInit {
   currencyPairs = [
     {value: 'EUR/USD', viewValue: 'EUR/USD'},
     {value: 'GBP/USD', viewValue: 'GBP/USD'},
-    {value: 'NZD/USD', viewValue: 'NZD/USD'},
-    {value: 'XAU/USD', viewValue: 'XAU/USD'},
+    {value: 'JPY/USD', viewValue: 'JPY/USD'},
+    {value: 'NOK/USD', viewValue: 'NOK/USD'},
     {value: 'AUD/USD', viewValue: 'AUD/USD'},
     {value: 'CHF/USD', viewValue: 'NZD/USD'}
   ];

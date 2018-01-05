@@ -1,1 +1,2 @@
-export const MOCK_API: string = 'https://currency-market.herokuapp.com:4000';
+import { environment } from '../environments/environment';
+export const MOCK_API: string = environment.host+4000;
