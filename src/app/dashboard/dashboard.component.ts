@@ -62,7 +62,7 @@ export class DashboardComponent implements OnInit {
   // Table
   columns: ITdDataTableColumn[] = [
     { name: 'symbol',  label: 'Symbol', sortable: true, filter: true},
-    { name: 'price', label: 'Price', sortable: true, filter: true, numeric: true, format: DECIMAL_FORMAT },
+    { name: 'price', label: 'Price (US$)', sortable: true, filter: true, numeric: true, format: DECIMAL_FORMAT },
     { name: 'bid', label: 'Bid', sortable: true, filter: true, hidden: false, numeric: true },
     { name: 'ask', label: 'Ask', sortable: true, filter: true, numeric: true },
     { name: 'timestamp', label: 'Timestamp', sortable: true, filter: true, width: 350 },
@@ -126,8 +126,8 @@ export class DashboardComponent implements OnInit {
     this.media.broadcast();
     this._changeDetectorRef.detectChanges();
 
-    // forex api service
-    IntervalObservable.create(60000)
+    // forex api service polls every hour to save events
+    IntervalObservable.create(600000)
       .subscribe(n => {
         this._forexService.getForexData()
           .subscribe((currencies) => {

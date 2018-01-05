@@ -1,6 +1,6 @@
 # Currency exchange market demo
 
-This demo was built for Terradata dev challenge purpose to showcase the use of proprietary covalent core components, 
+This demo was built for Teradata dev challenge purpose to showcase the use of proprietary covalent core components,
 Angular 4 in combination with Material 2 UI components using Typescript
 
 Deployed demo can be found at  [**demo**](https://currency-market.herokuapp.com/)

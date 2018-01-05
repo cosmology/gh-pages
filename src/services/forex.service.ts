@@ -13,7 +13,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/mergeMap';
-import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
+import { HttpInterceptorService } from '@covalent/http';
 import { TextUtils } from '../utils/text-utils.service'
 
 const API_URL = environment.forexApi;
@@ -41,9 +41,9 @@ export class ForexService {
   }
 
   constructor(
-    private _http: Http,
-    private _util: TextUtils
-  ) {
+    private _http: HttpInterceptorService,
+    private _util: TextUtils) {
+
   }
 
   public getForexData(): Observable<Currency[]> {

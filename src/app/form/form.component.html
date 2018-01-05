@@ -10,15 +10,15 @@
                         [opened]="media.registerQuery('gt-sm') | async"
                         [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'push'"
                         [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '257px' : '100%'">
-    <mat-nav-list td-sidenav-content [tdLayoutManageListClose]="!media.query('gt-sm')">
-      <a mat-list-item>
-        <mat-icon>dashboard</mat-icon>
-        Dashboard
-      </a>
+    <mat-nav-list td-sidenav-content [tdLayoutManageListToggle]="true" [hideWhenOpened]="false">
+      <a mat-list-item><mat-icon>dashboard</mat-icon>Dashboard 1</a>
+      <a mat-list-item><mat-icon>link</mat-icon>Link 2</a>
+      <a mat-list-item><mat-icon>image</mat-icon>Image 3</a>
     </mat-nav-list>
     <div td-toolbar-content layout="row" layout-align="start center" flex>
-      <a mat-icon-button [routerLink]="['']"><mat-icon>arrow_back</mat-icon></a>
-      <span>Back</span>
+      <button mat-icon-button [tdLayoutManageListToggle]="true" [hideWhenOpened]="true">
+        <mat-icon>menu</mat-icon>
+      </button>
       <span flex></span>
     </div>
     <div class="md-content" class="inset">
