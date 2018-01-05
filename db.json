@@ -1,0 +1,169 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "currencies": [
+    {
+      "id": 1,
+      "title": "Dollar on the rise",
+      "description": "Dollar on the rise description",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "title": "Dollar soars",
+      "description": "Dollar on the rise description",
+      "complete": false
+    },
+    {
+      "id": 3,
+      "title": "Dollar gaining strength",
+      "description": "Dollar gaining strength description",
+      "complete": false
+    }
+  ],
+  "items": [
+    {
+      "id": "2",
+      "name": "Dollar Edged Lower As Investors Analyze Details of Tax Overhaul",
+      "symbol": "GBP/USD",
+      "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
+      "icon": "description",
+      "created": "07/13/2017 11:05 AM"
+    },
+    {
+      "id": "3",
+      "name": "Dollar Higher on Renewed Political Unrest in Europe",
+      "symbol": "EUR/USD",
+      "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
+      "icon": "description",
+      "created": "06/15/2016 09:02 AM"
+    },
+    {
+      "id": "4",
+      "name": "Dollar Edged Lower As Investors Analyze Details of Tax Overhaul",
+      "symbol": "GBP/USD",
+      "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
+      "icon": "description",
+      "created": "07/13/2017 11:05 AM"
+    },
+    {
+      "id": "5",
+      "name": "Dollar Higher on Renewed Political Unrest in Europe",
+      "symbol": "EUR/USD",
+      "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
+      "icon": "description",
+      "created": "06/15/2016 09:02 AM"
+    },
+    {
+      "name": "article 1",
+      "symbol": "GBPUSD",
+      "description": "aasas",
+      "id": "61b302c5-7189-4b68-ab66-776f53361998",
+      "icon": "description",
+      "created": "2018-01-04T22:09:35.415Z"
+    },
+    {
+      "name": "zxzx",
+      "symbol": "GBP/USD",
+      "description": "zxzxzx",
+      "id": "33200d62-90fa-4b4f-a107-74891158bfa8",
+      "icon": "description",
+      "created": "2018-01-04T23:00:58.270Z"
+    },
+    {
+      "name": "article 1",
+      "symbol": "XAU/USD",
+      "description": "asdasd",
+      "id": "f7ef2fa0-0baf-4fd2-89f3-335000f598db",
+      "icon": "description",
+      "created": "2018-01-04T23:13:20.720Z"
+    }
+  ],
+  "alerts": [
+    {
+      "item_id": "1",
+      "name": "Ivan Sim Card",
+      "description": "sim card expiring",
+      "icon": "sim_card",
+      "created": "07/13/2016 11:05 AM"
+    },
+    {
+      "item_id": "2",
+      "name": "Motherboard",
+      "description": "board heat nearing critical",
+      "icon": "developer_board",
+      "created": "07/01/2016 03:41 PM"
+    },
+    {
+      "item_id": "3",
+      "name": "RAM Usage",
+      "description": "exceeded ram capacity",
+      "icon": "memory",
+      "created": "06/15/2016 09:02 AM"
+    },
+    {
+      "item_id": "4",
+      "name": "Wireless Signal",
+      "description": "interrupted signal strength",
+      "icon": "router",
+      "created": "03/23/2016 11:01 PM"
+    },
+    {
+      "item_id": "5",
+      "name": "Battery",
+      "description": "battery level unknown",
+      "icon": "battery_unknown",
+      "created": "12/23/2015 11:05 AM"
+    },
+    {
+      "item_id": "6",
+      "name": "Sim Card",
+      "description": "sim card expiring",
+      "icon": "sim_card",
+      "created": "07/13/2016 11:05 AM"
+    },
+    {
+      "item_id": "7",
+      "name": "Motherboard",
+      "description": "board heat nearing critical",
+      "icon": "developer_board",
+      "created": "07/01/2016 03:41 PM"
+    },
+    {
+      "item_id": "8",
+      "name": "RAM Usage",
+      "description": "exceeded ram capacity",
+      "icon": "memory",
+      "created": "06/15/2016 09:02 AM"
+    },
+    {
+      "item_id": "9",
+      "name": "Wireless Signal",
+      "description": "interrupted signal strength",
+      "icon": "router",
+      "created": "03/23/2016 11:01 PM"
+    },
+    {
+      "item_id": "10",
+      "name": "Battery",
+      "description": "battery level unknown",
+      "icon": "battery_unknown",
+      "created": "12/23/2015 11:05 AM"
+    }
+  ]
+}

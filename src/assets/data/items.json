@@ -1,0 +1,46 @@
+[
+  {
+    "item_id": "1",
+    "name": "U.S. Dollar Falls as Funding Need Ease",
+    "symbol": "CHF/USD",
+    "description": "The U.S. dollar slipped Tuesday to open a holiday-shortened week.",
+    "icon": "description",
+    "created" : "07/13/2016 11:05 AM"
+  },{
+    "item_id": "2",
+    "name": "U.S. Dollar Weakens Versus Canadian Currency",
+    "symbol": "GBP/USD",
+    "description": "The dollar inched higher Friday, as investors reacted to renewed political unrest in Europe.",
+    "icon": "description",
+    "created" : "07/01/2016 03:41 PM"
+  },{
+    "item_id": "3",
+    "name": "Dollar Higher on Renewed Political Unrest in Europe",
+    "symbol": "EUR/USD",
+    "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
+    "icon": "description",
+    "created" : "06/15/2016 09:02 AM"
+  },
+  {
+    "item_id": "4",
+    "name": "Dollar Edged Lower As Investors Analyze Details of Tax Overhaul",
+    "symbol": "GBP/USD",
+    "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
+    "icon": "description",
+    "created" : "07/13/2017 11:05 AM"
+  },{
+    "item_id": "5",
+    "name": "U.S. Dollar Weakens Versus Canadian Currency",
+    "symbol": "EUR/USD",
+    "description": "The dollar inched higher Friday, as investors reacted to renewed political unrest in Europe.",
+    "icon": "description",
+    "created" : "07/01/2017 03:41 PM"
+  },{
+    "item_id": "6",
+    "name": "Dollar Higher on Renewed Political Unrest in Europe",
+    "symbol": "CHF/USD",
+    "description": "The U.S. dollar edged lower Tuesday with investors assessing the direction of the currency as the Republican tax cut package moved closer to becoming law.",
+    "icon": "description",
+    "created" : "06/15/2017 09:02 AM"
+  }
+]

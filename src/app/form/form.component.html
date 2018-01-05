@@ -1,0 +1,77 @@
+<td-layout-nav class="white" logo="assets:covalent" navigationRoute="/">
+  <button mat-icon-button td-menu-button tdLayoutToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div td-toolbar-content layout="row" layout-align="center center" flex>
+    <span>Product Name</span>
+    <span flex></span>
+  </div>
+  <td-layout-manage-list
+                        [opened]="media.registerQuery('gt-sm') | async"
+                        [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'push'"
+                        [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '257px' : '100%'">
+    <mat-nav-list td-sidenav-content [tdLayoutManageListClose]="!media.query('gt-sm')">
+      <a mat-list-item>
+        <mat-icon>dashboard</mat-icon>
+        Dashboard
+      </a>
+    </mat-nav-list>
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+      <a mat-icon-button [routerLink]="['']"><mat-icon>arrow_back</mat-icon></a>
+      <span>Back</span>
+      <span flex></span>
+    </div>
+    <div class="md-content" class="inset">
+      <form [formGroup]="myGroup" (ngSubmit)="addArticle(myGroup.value)">
+        <mat-card>
+
+          <div layout-gt-xs="row">
+            <div class="pad example-container">
+              <mat-form-field>
+                <input matInput placeholder="Article name (30 max)" maxlength="30" #inputHint
+                  type="text"
+                  class="form-control"
+                  formControlName="name"
+                  required>
+                <mat-hint align="end">{{inputHint.value.length}} / 30</mat-hint>
+                <mat-error *ngIf="nameInput.invalid">{{getArticleErrorMessage()}}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="pad">
+            <mat-form-field>
+              <mat-select placeholder="Currency Pair"
+                class="form-control"
+                formControlName="symbol"
+                required>
+                <mat-option *ngFor="let c of currencyPairs" [value]="c.value">
+                  {{ c.viewValue }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="symbolInput.invalid">{{getSymbolErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="pad example-container">
+            <mat-form-field>
+              <textarea matInput placeholder="Article description"
+                        matTextareaAutosize matAutosizeMinRows="2"
+                        matAutosizeMaxRows="5"
+                        class="form-control"
+                        formControlName="description"
+                        required></textarea>
+              <mat-error *ngIf="descriptionInput.invalid">{{getDescriptionErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <mat-divider></mat-divider>
+          <mat-card-actions>
+            <button mat-raised-button color="accent" type="submit">Save &amp; Create</button>
+            <button mat-button class="tc-grey-600" (click)="reset()">Reset</button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
+    </div>
+  </td-layout-manage-list>
+</td-layout-nav>

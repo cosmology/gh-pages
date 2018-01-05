@@ -1,0 +1,15 @@
+<!--<a mat-list-item layout-align="row" [routerLink]="['../item', item.id]">
+  <mat-icon matListAvatar> {{item.icon}} </mat-icon>
+  <h3 matLine> {{item.name}} </h3>
+  <p matLine> {{item.description | truncate:50 }} </p>
+  <span matLine> {{item.symbol}} </span>
+  <span class="md-caption text-right" flex="20"> {{item.created | timeAgo }} </span>
+</a>-->
+<mat-icon matListAvatar> {{item.icon}} </mat-icon>
+<h3 mat-line>{{item.name}}</h3>
+
+<!--<p mat-line>
+  <span>{{item.description | truncate:50 }}</span>
+  <span mat-line> {{item.symbol}} </span>
+</p>-->
+<span class="md-caption text-right" flex="20"> {{item.created | timeAgo }} </span>
