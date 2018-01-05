@@ -73,13 +73,14 @@ mat-nav-list {
     @include covalent-theme($light-blue-red);
 }
 .dark-theme {
-  $dark-p: mat-palette($mat-deep-purple, 700);
-  $dark-a: mat-palette($mat-pink);
+  $dark-p: mat-palette($mat-indigo, 800);
+  $dark-a: mat-palette($mat-pink, 500);
+  $warn3:  mat-palette($mat-pink, 500);
 
-  $dark-t: mat-dark-theme($dark-p, $dark-a);
+  $dark-grey-blue: mat-dark-theme($dark-p, $dark-a, $warn3);
 
-  @include angular-material-theme($dark-t);
-  @include covalent-theme($dark-t);
+  @include angular-material-theme($dark-grey-blue);
+  @include covalent-theme($dark-grey-blue);
 }
 
 /* ------------------------------------------------------------------------------- */

@@ -45,7 +45,7 @@
               <span *ngIf="searchBox.searchVisible">
                 <span *ngIf="selectedRows.length && selectable" class="mat-body-1">0 item(s) selected</span>
               </span>
-              <td-search-box #searchBox backIcon="arrow_forward" placeholder="Search here" (searchDebounce)="search($event)" flex>
+              <td-search-box class="tick" #searchBox backIcon="arrow_forward" placeholder="Search here" (searchDebounce)="search($event)" flex>
               </td-search-box>
             </div>
           </mat-card-title>
@@ -174,11 +174,11 @@
                   <h3 mat-line>{{item.name}}</h3>
                   <p mat-line>
                     <span [routerLink]="['../item', item.id]">{{item.description | truncate:50 }}</span>
-                    <span mat-line> {{item.symbol}} </span>
+                    <span mat-line class="md-caption text-left"> {{item.symbol}} </span>
                   </p>
                   <span class="md-caption text-right" flex="20"> {{item.created | timeAgo }} </span>
                   <button mat-icon-button (click)="deleteArticle(item)" matTooltip="Delete">
-                    <mat-icon>cancel</mat-icon>
+                    <mat-icon>delete</mat-icon>
                   </button>
                 </mat-list-item>
               </mat-nav-list>
