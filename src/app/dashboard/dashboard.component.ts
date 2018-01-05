@@ -181,7 +181,6 @@ export class DashboardComponent implements OnInit {
 
     console.log('rowSelected ', event)
 
-
     let newData: any[] = [];
     let newHistoryData: any[] = [];
 
@@ -198,10 +197,6 @@ export class DashboardComponent implements OnInit {
 
     let intersectHistory = ArrayUtils.intersect(c,d);
 
-    console.log('c ', c);
-    console.log('d ', d);
-    console.log('intersectHistory ', intersectHistory);
-
     Object.keys(this.items).map((item) => {
       if (intersect.includes(this.items[item].symbol)) {
         newData.push(this.items[item])
@@ -213,19 +208,11 @@ export class DashboardComponent implements OnInit {
       }
     })
 
+    this.filteredHistoryBySelectedRows = (intersectHistory.length > 0) ? newHistoryData : this.historyRates;
+
     if(event.selected && intersect.length === 0 && newData.length === 0) return;
 
     this.filteredNewsBySelectedRows = (intersect.length > 0) ? newData : this.items;
-    this.filteredHistoryBySelectedRows = (intersectHistory.length > 0) ? newHistoryData : this.historyRates;
-
-    //this.filteredHistoryBySelectedRows = newHistoryData;
-
-    console.log('historyRates ', this.historyRates);
-    console.log('newHistoryData ', newHistoryData);
-
-    console.log('items ', this.items)
-    console.log('filteredNewsBySelectedRows ', this.filteredNewsBySelectedRows)
-    console.log('filteredHistoryBySelectedRows ', this.filteredHistoryBySelectedRows)
 
   }
 
