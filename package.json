@@ -14,7 +14,7 @@
     "lint": "ng lint",
     "reinstall": "rm -rf node_modules tmp deploy dist && yarn install",
     "postinstallfake": "webdriver-manager update && ./scripts/protractor.sh",
-    "postinstall": "ng build --prod --target=production",
+    "postinstall": "ng build --aot --target=production",
     "json-server": "json-server -p 4000 db.json && json-server --watch db.json",
     "start-api": "cd mock-api && covalent-data",
     "stop-api": "pkill covalent-data",
