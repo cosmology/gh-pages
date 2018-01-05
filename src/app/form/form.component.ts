@@ -64,12 +64,6 @@ export class FormComponent implements AfterViewInit {
               //matcher = new MyErrorStateMatcher();
   }
 
-  /*ngOnInit() {
-    this.nameInput = this.myGroup.get('name') as FormControl;
-    this.descriptionInput = this.myGroup.get('description') as FormControl;
-    this.symbolInput = this.myGroup.get('symbol') as FormControl;
-  }*/
-
   ngAfterViewInit(): void {
     // broadcast to all listener observables when loading the page
     this.media.broadcast();

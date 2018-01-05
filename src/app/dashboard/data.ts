@@ -1,6 +1,31 @@
 import * as moment from 'moment';
 
-export let multi: any = [
+export let historyRates: any = [
+  {
+    'name': 'JPY/USD',
+    'series': [
+      {
+        'value': 0.009473,
+        'name': moment(1420070399999),
+      },
+      {
+        'value': 0.008263,
+        'name': moment(1451606399999),
+      },
+      {
+        'value': 0.009217,
+        'name': moment(1483228799999),
+      },
+      {
+        'value': 0.008919,
+        'name': moment(1514764799999),
+      },
+      {
+        'value': 0.008889,
+        'name': moment(1515070800000),
+      },
+    ],
+  },
   {
     'name': 'NOK/USD',
     'series': [
@@ -126,32 +151,6 @@ export let multi: any = [
       },
     ],
   },
-  /*
-  {
-    'name': 'NoSQL Database',
-    'series': [
-      {
-        'value': 4260,
-        'name': '2016-09-15T19:25:07.773Z',
-      },
-      {
-        'value': 4810,
-        'name': '2016-09-17T17:16:53.279Z',
-      },
-      {
-        'value': 5087,
-        'name': '2016-09-15T10:34:32.344Z',
-      },
-      {
-        'value': 5941,
-        'name': '2016-09-19T14:33:45.710Z',
-      },
-      {
-        'value': 6427,
-        'name': '2016-09-12T18:48:58.925Z',
-      },
-    ],
-  },*/
 ];
 
 export let times: any = [

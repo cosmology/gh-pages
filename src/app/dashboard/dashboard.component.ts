@@ -4,7 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry, MatDialog } from '@angular/material';
 import { DatePipe } from '@angular/common';
 import { Router } from "@angular/router";
-import { multi, times } from './data';
+import { historyRates, times } from './data';
 import { TdLoadingService, TdMediaService, TdDigitsPipe, TdLayoutManageListComponent, TdRotateAnimation } from '@covalent/core';
 
 // table
@@ -33,15 +33,12 @@ export class DashboardComponent implements OnInit {
   items: Item[];
 
   // Chart
-  multi: any[];
-
-  view: any[] = [700, 400];
+  historyRates: any[];
 
   // options
   showXAxis: boolean = true;
   showYAxis: boolean = true;
   gradient: boolean = false;
-  showLegend: boolean = false;
   showXAxisLabel: boolean = true;
   xAxisLabel: string = '';
   showYAxisLabel: boolean = true;
@@ -72,6 +69,7 @@ export class DashboardComponent implements OnInit {
   ];
 
   filteredNewsBySelectedRows: any[] = this.items;
+  filteredHistoryBySelectedRows: any[] = this.historyRates;
   filteredData: any[] = this.currencies;
   filteredTotal: number = this.currencies.length;
 
@@ -101,14 +99,15 @@ export class DashboardComponent implements OnInit {
               public dialog: MatDialog,
               ) {
                 // Chart
-                this.multi = multi.map((group: any) => {
+                this.historyRates = historyRates.map((group: any) => {
                   group.series = group.series.map((dataItem: any) => {
                     dataItem.name = new Date(dataItem.name);
                     return dataItem;
                   });
                   return group;
                 });
-
+                this.filteredHistoryBySelectedRows = this.historyRates;
+;
               this._iconRegistry.addSvgIconInNamespace('assets', 'covalent',
               this._domSanitizer.bypassSecurityTrustResourceUrl
               ('https://raw.githubusercontent.com/Teradata/covalent-quickstart/develop/src/assets/icons/covalent.svg'));
@@ -118,7 +117,7 @@ export class DashboardComponent implements OnInit {
                   this.currencies = currencies;
                   this.filter();
               });
-              Object.assign(this, {multi, times})
+              Object.assign(this, {historyRates, times})
   }
 
   ngOnInit(): void {
@@ -180,33 +179,63 @@ export class DashboardComponent implements OnInit {
 
   rowSelected(event: any): void {
 
+    console.log('rowSelected ', event)
+
+
     let newData: any[] = [];
-    this.filteredNewsBySelectedRows = []
+    let newHistoryData: any[] = [];
+
+    this.filteredNewsBySelectedRows = [];
+    this.filteredHistoryBySelectedRows = [];
 
     let a = Object.keys(this.selectedRows).map((item) => this.selectedRows[item].symbol);
     let b = Object.keys(this.items).map((item) => this.items[item].symbol);
 
     let intersect = ArrayUtils.intersect(a,b);
 
+    let c = Object.keys(this.selectedRows).map((item) => this.selectedRows[item].symbol);
+    let d = Object.keys(this.historyRates).map((item) => this.historyRates[item].name);
+
+    let intersectHistory = ArrayUtils.intersect(c,d);
+
+    console.log('c ', c);
+    console.log('d ', d);
+    console.log('intersectHistory ', intersectHistory);
+
     Object.keys(this.items).map((item) => {
       if (intersect.includes(this.items[item].symbol)) {
         newData.push(this.items[item])
+      }
+    })
+    Object.keys(this.historyRates).map((item) => {
+      if (intersectHistory.includes(this.historyRates[item].name)) {
+        newHistoryData.push(this.historyRates[item])
       }
     })
 
     if(event.selected && intersect.length === 0 && newData.length === 0) return;
 
     this.filteredNewsBySelectedRows = (intersect.length > 0) ? newData : this.items;
+    this.filteredHistoryBySelectedRows = (intersectHistory.length > 0) ? newHistoryData : this.historyRates;
+
+    //this.filteredHistoryBySelectedRows = newHistoryData;
+
+    console.log('historyRates ', this.historyRates);
+    console.log('newHistoryData ', newHistoryData);
+
+    console.log('items ', this.items)
+    console.log('filteredNewsBySelectedRows ', this.filteredNewsBySelectedRows)
+    console.log('filteredHistoryBySelectedRows ', this.filteredHistoryBySelectedRows)
 
   }
 
-  deleteArticle(id:string){
-    console.log('deleteArticle in DASHBOARD ')
-    this._itemsService.deleteItemById(id)
+  deleteArticle(event){
+    console.log('deleteArticle in DASHBOARD ', event)
+    this._itemsService.deleteItemById(event.id)
       .subscribe(
         res => {
           this.items.forEach((t:any, i:number) => {
-            if(t.id === id) this.items.splice(i, 1);
+            if(t.id === event.id) this.items.splice(i, 1);
           });
         },
         err => {
@@ -251,6 +280,6 @@ export class DashboardComponent implements OnInit {
 
   // ngx transform using covalent digits pipe
   axisDigits(val: any): any {
-    return new TdDigitsPipe().transform(val);
+    return new TdDigitsPipe().transform(val, 4);
   }
 }

@@ -88,8 +88,8 @@
             <div class="chart-height push-top push-right-sm">
               <ngx-charts-line-chart
                 [scheme]="colorScheme"
-                [results]="multi"
-                [gradient]="true"
+                [results]="filteredHistoryBySelectedRows"
+                [gradient]=gradient
                 [xAxis]="showXAxis"
                 [yAxis]="showYAxis"
                 [showXAxisLabel]="showXAxisLabel"
@@ -171,11 +171,11 @@
                   <mat-icon matListAvatar> {{item.icon}} </mat-icon>
                   <h3 mat-line>{{item.name}}</h3>
                   <p mat-line>
-                    <span>{{item.description | truncate:50 }}</span>
+                    <span [routerLink]="['../item', item.id]">{{item.description | truncate:50 }}</span>
                     <span mat-line> {{item.symbol}} </span>
                   </p>
                   <span class="md-caption text-right" flex="20"> {{item.created | timeAgo }} </span>
-                  <button mat-icon-button (click)="deleteArticle(item.id)" matTooltip="Delete">
+                  <button mat-icon-button (click)="deleteArticle(item)" matTooltip="Delete">
                     <mat-icon>cancel</mat-icon>
                   </button>
                 </mat-list-item>
