@@ -6,14 +6,16 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-const router = jsonServer.router('db.json');
-
-const middlewares = jsonServer.defaults();
 const port = process.env.PORT || 4000;
 
+// json server
+/*
+const router = jsonServer.router('db.json');
+const middlewares = jsonServer.defaults();
 server.use(middlewares);
 server.use(router);
 server.listen(port);
+*/
 
 // Gzip
 app.use(compression());
