@@ -5,9 +5,9 @@ Angular 4 in combination with Material 2 UI components using Typescript
 
 Deployed demo can be found at  [**demo**](https://currency-market.herokuapp.com/)
 
-Currently the only real time poslling service is the forexe service, others use mock data hardcoded (real past 5 years history data). 
+Currently the only real time polling service is the forex service, others use mock data hardcoded (real past 5 years history data). 
 To see all the filtering features in action I had to add fake items.json path. so adding files on heroku is not working until I add another dyno
-or build another RESTapi app and serve it from heroku. The fake RESTful API services run locally just fine
+or build another RESTful endpoints app and serve it from heroku. The fake RESTful API services run locally just fine.
 
 ## Installation
 
