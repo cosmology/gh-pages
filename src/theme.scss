@@ -99,11 +99,11 @@ $background: map-get($theme, background);
 .gridline-path {
     &.gridline-path-horizontal,
     &.gridline-path-vertical {
-        stroke: rgba(black, 0.06);
+        stroke: rgba(black, 0.6);
     }
 }
 .legend-title-text {
-    color: mat-color($foreground, secondary-text);
+  color: mat-color($foreground, secondary-text);
 }
 ngx-charts-line-chart,
 ngx-charts-area-chart,
@@ -117,7 +117,7 @@ ngx-charts-area-chart-stacked {
 ngx-charts-line-chart {
     .line-series {
         .line {
-            stroke-width: 2;
+            stroke-width: 1;
         }
     }
 }
