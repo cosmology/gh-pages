@@ -25,14 +25,14 @@ exec(command, (err, stdout, stderr) => {
   console.log('stderr:', stderr);
 });
 
-//server.use(middlewares);
-//server.use(router);
-server.listen(port, function () {
+server.use(middlewares);
+server.use(router);
+server.listen(4000, function () {
   console.log('JSON Server is running')
 });
 
 // Gzip
-//app.use(compression());
+app.use(compression());
 
 // Run the app by serving the static files in the dist directory
 app.use(express.static(__dirname + '/dist'));
