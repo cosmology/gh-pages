@@ -88,23 +88,7 @@
               <div layout="row" layout-align="start center">
                 <mat-icon>history</mat-icon>
                 <span flex>
-                  <span class="mat-title push-left">Historical Exchange Rates</span>
-                </span>
-                <span [style.width.px]="100" layout="row" class="push-left-sm push-right mat-body-1">
-                  <mat-form-field floatPlaceholder="never" flex>
-                    <input matInput [max]="maxFromDate" readonly [(ngModel)]="dateFrom" [matDatepicker]="pickerFrom">
-                    <mat-datepicker-toggle matSuffix matTooltip="Start date" [for]="pickerFrom"></mat-datepicker-toggle>
-                    <mat-datepicker #pickerFrom [startAt]="dateFrom"></mat-datepicker>
-                  </mat-form-field>
-
-                </span>
-                <span hide-xs class="mat-body-2 push-right"> to </span>
-                <span [style.width.px]="100" layout="row" class="mat-body-1">
-                  <mat-form-field floatPlaceholder="never" flex>
-                    <input matInput [max]="maxToDate" readonly [(ngModel)]="dateTo" [matDatepicker]="pickerTo">
-                    <mat-datepicker-toggle matSuffix matTooltip="End date" [for]="pickerTo"></mat-datepicker-toggle>
-                    <mat-datepicker #pickerTo [startAt]="dateTo"></mat-datepicker>
-                  </mat-form-field>
+                  <span class="mat-title push-left">Mimic Real Time Rate Change</span>
                 </span>
               </div>
             </mat-card-title>
@@ -112,7 +96,7 @@
             <div class="chart-height push-top push-right-sm">
               <ngx-charts-line-chart
                 [scheme]="colorScheme"
-                [results]="filteredHistoryBySelectedRows"
+                [results]="filteredRealTimeBySelectedRows"
                 [gradient]="gradient"
                 [autoScale]="autoScale"
                 [xAxis]="showXAxis"
@@ -173,6 +157,25 @@
             <mat-icon>insert_comment</mat-icon>
             <span flex>
               <span class="mat-title push-left">In the News</span>
+            </span>
+            <span [style.width.px]="100" layout="row" class="push-left-sm push-right mat-body-1">
+
+              <mat-form-field floatPlaceholder="never" flex>
+                <input matInput [max]="maxFromDate" readonly [(ngModel)]="dateFrom" [matDatepicker]="pickerFrom" (dateChange)="addDatepickerEvent('change', $event)">
+                <mat-datepicker-toggle matSuffix matTooltip="Start date" [for]="pickerFrom"></mat-datepicker-toggle>
+                <mat-datepicker #pickerFrom [startAt]="dateFrom" touchUi="true"></mat-datepicker>
+              </mat-form-field>
+
+            </span>
+            <span hide-xs class="mat-body-2 push-right"> to </span>
+            <span [style.width.px]="100" layout="row" class="mat-body-1">
+
+              <mat-form-field floatPlaceholder="never" flex>
+                <input matInput [max]="maxToDate" readonly [(ngModel)]="dateTo" [matDatepicker]="pickerTo" (dateChange)="addDatepickerEvent('change', $event)">
+                <mat-datepicker-toggle matSuffix matTooltip="End date" [for]="pickerTo"></mat-datepicker-toggle>
+                <mat-datepicker #pickerTo [startAt]="dateTo"></mat-datepicker>
+              </mat-form-field>
+
             </span>
             <span>
               <button mat-icon-button matTooltip="More" [mat-menu-trigger-for]="more">

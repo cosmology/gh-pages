@@ -1,10 +1,12 @@
 import { Title } from '@angular/platform-browser';
-import { Component, OnInit, ChangeDetectorRef, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { Router } from "@angular/router";
-import { historyRates, times } from './data';
+import { historyRates, realTimeMockRates } from './data';
 import { TdLoadingService, TdMediaService, TdDigitsPipe, TdRotateAnimation } from '@covalent/core';
+import * as moment from 'moment';
 
 // table
 import { TdDataTableService, TdDataTableSortingOrder, ITdDataTableSortChangeEvent, ITdDataTableColumn } from '@covalent/core';
@@ -33,6 +35,9 @@ export class DashboardComponent implements OnInit {
 
   // Chart
   historyRates: any[];
+  realTimeMockRates: any[];
+
+  view: any[] = [700, 400];
 
   // line, area
   autoScale: boolean = true;
@@ -43,16 +48,17 @@ export class DashboardComponent implements OnInit {
   xAxisLabel: string = '';
   showYAxisLabel: boolean = true;
   yAxisLabel: string = 'Rate';
+  intervalId;
 
   colorScheme: any = {
     domain: ['#1565C0', '#2196F3', '#81D4FA', '#FF9800', '#EF6C00'],
   };
 
   // Timeframe
-  dateFrom: Date = new Date(new Date().getTime() - (1825 * 60 * 60 * 24 * 1000));
+  dateFrom: Date = new Date(new Date().getTime());
   dateTo: Date = new Date(new Date().getTime());
-  maxFromDate: Date = new Date(new Date().getTime() - (3650 * 60 * 60 * 24 * 1000));
-  maxToDate: Date = new Date(new Date().getTime());
+  maxFromDate: Date =  new Date(new Date().getTime());
+  maxToDate: Date = new Date(new Date().getTime() - (365 * 60 * 60 * 24 * 1000));
 
   currencies: Currency[] = [];
 
@@ -67,6 +73,8 @@ export class DashboardComponent implements OnInit {
 
   filteredNewsBySelectedRows: any[] = this.items;
   filteredHistoryBySelectedRows: any[] = this.historyRates;
+  filteredRealTimeBySelectedRows: any[] = this.realTimeMockRates;
+
   filteredData: any[] = this.currencies;
   filteredTotal: number = this.currencies.length;
 
@@ -77,6 +85,7 @@ export class DashboardComponent implements OnInit {
   sortBy: string = 'price';
   selectedRows: any[] = [];
   sortOrder: TdDataTableSortingOrder = TdDataTableSortingOrder.Descending;
+  datePickerEvents: string[] = [];
 
   constructor(
               private _titleService: Title,
@@ -101,18 +110,59 @@ export class DashboardComponent implements OnInit {
                   });
                   return group;
                 });
-                this.filteredHistoryBySelectedRows = this.historyRates;
-;
-              this._iconRegistry.addSvgIconInNamespace('assets', 'covalent',
-              this._domSanitizer.bypassSecurityTrustResourceUrl
-              ('https://raw.githubusercontent.com/Teradata/covalent-quickstart/develop/src/assets/icons/covalent.svg'));
+                this.realTimeMockRates = realTimeMockRates.map((group: any) => {
+                  group.series = group.series.map((dataItem: any) => {
+                    dataItem.name = new Date(dataItem.name);
+                    return dataItem;
+                  });
+                  return group;
+                });
+                //this.filteredHistoryBySelectedRows = this.historyRates;
 
-              this._forexService.getForexData()
-                .subscribe((currencies) => {
-                  this.currencies = currencies;
-                  this.filter();
-              });
-              Object.assign(this, {historyRates, times})
+                this.filteredRealTimeBySelectedRows = this.realTimeMockRates
+;
+                this._iconRegistry.addSvgIconInNamespace('assets', 'covalent',
+                this._domSanitizer.bypassSecurityTrustResourceUrl
+                ('https://raw.githubusercontent.com/Teradata/covalent-quickstart/develop/src/assets/icons/covalent.svg'));
+
+                this._forexService.getForexData()
+                  .subscribe((currencies) => {
+                    this.currencies = currencies;
+                    this.filter();
+                });
+
+                Object.assign(this, {historyRates, realTimeMockRates})
+
+                // mimic random live stream
+                this.intervalId = setInterval(() => {
+                  this.filteredRealTimeBySelectedRows = [...this.addRandomValue()];
+                }, 5000);
+  }
+
+  addRandomValue() {
+
+    let value1 = Number((Math.random() * (0.220 - 0.09) + 0.09).toFixed(4));
+    let value2 = Number((Math.random() * (0.830 - 0.2) + 0.2).toFixed(4));
+    let value3 = Number((Math.random() * (1.23 - 0.3) + 0.3).toFixed(4));
+    let value4 = Number((Math.random() * (0.95 - 0.1) + 0.1).toFixed(4));
+    let value5 = Number((Math.random() * (1.5 - 0.2) + 0.2).toFixed(4));
+    let value6 = Number((Math.random() * (0.1 - 0.05) + 0.05).toFixed(4));
+
+    if(this.filteredRealTimeBySelectedRows && this.filteredRealTimeBySelectedRows[0]) this.filteredRealTimeBySelectedRows[0].series.push({"value": value1, "name": new Date});
+    if(this.filteredRealTimeBySelectedRows && this.filteredRealTimeBySelectedRows[1]) this.filteredRealTimeBySelectedRows[1].series.push({"value": value2, "name": new Date});
+    if(this.filteredRealTimeBySelectedRows && this.filteredRealTimeBySelectedRows[2]) this.filteredRealTimeBySelectedRows[2].series.push({"value": value3, "name": new Date});
+    if(this.filteredRealTimeBySelectedRows && this.filteredRealTimeBySelectedRows[3]) this.filteredRealTimeBySelectedRows[3].series.push({"value": value4, "name": new Date});
+    if(this.filteredRealTimeBySelectedRows && this.filteredRealTimeBySelectedRows[4]) this.filteredRealTimeBySelectedRows[4].series.push({"value": value5, "name": new Date});
+    if(this.filteredRealTimeBySelectedRows && this.filteredRealTimeBySelectedRows[5]) this.filteredRealTimeBySelectedRows[5].series.push({"value": value6, "name": new Date});
+
+    if (this.filteredRealTimeBySelectedRows && this.filteredRealTimeBySelectedRows[0] && this.filteredRealTimeBySelectedRows[0].series.length > 10) this.filteredRealTimeBySelectedRows[0].series.splice(0,1);
+    if (this.filteredRealTimeBySelectedRows && this.filteredRealTimeBySelectedRows[1] && this.filteredRealTimeBySelectedRows[1].series.length > 10) this.filteredRealTimeBySelectedRows[1].series.splice(0,1);
+    if (this.filteredRealTimeBySelectedRows && this.filteredRealTimeBySelectedRows[2] && this.filteredRealTimeBySelectedRows[2].series.length > 10) this.filteredRealTimeBySelectedRows[2].series.splice(0,1);
+    if (this.filteredRealTimeBySelectedRows && this.filteredRealTimeBySelectedRows[3] && this.filteredRealTimeBySelectedRows[3].series.length > 10) this.filteredRealTimeBySelectedRows[3].series.splice(0,1);
+    if (this.filteredRealTimeBySelectedRows && this.filteredRealTimeBySelectedRows[4] && this.filteredRealTimeBySelectedRows[4].series.length > 10) this.filteredRealTimeBySelectedRows[4].series.splice(0,1);
+    if (this.filteredRealTimeBySelectedRows && this.filteredRealTimeBySelectedRows[5] && this.filteredRealTimeBySelectedRows[5].series.length > 10) this.filteredRealTimeBySelectedRows[5].series.splice(0,1);
+
+    return this.filteredRealTimeBySelectedRows;
   }
 
   ngOnInit(): void {
@@ -151,6 +201,14 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  addDatepickerEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    console.log('addDatepickerEvent ', event.target.value)
+
+    this.datePickerEvents.push(`${type}: ${event.target.value}`);
+
+    console.log(this.datePickerEvents)
+  }
+
   sort(sortEvent: ITdDataTableSortChangeEvent): void {
     console.log('sort ITdDataTableSortChangeEvent ', sortEvent)
     this.sortBy = sortEvent.name;
@@ -178,9 +236,11 @@ export class DashboardComponent implements OnInit {
 
     let newData: any[] = [];
     let newHistoryData: any[] = [];
+    let newRealTimeData: any[] = [];
 
     this.filteredNewsBySelectedRows = [];
     this.filteredHistoryBySelectedRows = [];
+    this.filteredRealTimeBySelectedRows = [];
 
     let a = Object.keys(this.selectedRows).map((item) => this.selectedRows[item].symbol);
     let b = Object.keys(this.items).map((item) => this.items[item].symbol);
@@ -188,22 +248,33 @@ export class DashboardComponent implements OnInit {
     let intersect = ArrayUtils.intersect(a,b);
 
     let c = Object.keys(this.selectedRows).map((item) => this.selectedRows[item].symbol);
-    let d = Object.keys(this.historyRates).map((item) => this.historyRates[item].name);
+    let d = Object.keys(this.realTimeMockRates).map((item) => this.realTimeMockRates[item].name);
 
-    let intersectHistory = ArrayUtils.intersect(c,d);
+    //let d = Object.keys(this.historyRates).map((item) => this.historyRates[item].name);
+
+    //let intersectHistory = ArrayUtils.intersect(c,d);
+    let intersectRealTime = ArrayUtils.intersect(c,d);
+
+    console.log('c ', intersectRealTime)
+    console.log('d ', intersectRealTime)
+    console.log('intersectRealTime ', intersectRealTime)
 
     Object.keys(this.items).map((item) => {
       if (intersect.includes(this.items[item].symbol)) {
         newData.push(this.items[item])
       }
     })
-    Object.keys(this.historyRates).map((item) => {
-      if (intersectHistory.includes(this.historyRates[item].name)) {
-        newHistoryData.push(this.historyRates[item])
+    Object.keys(this.realTimeMockRates).map((item) => {
+      if (intersectRealTime.includes(this.realTimeMockRates[item].name)) {
+        //newHistoryData.push(this.realTimeMockRates[item])
+        newRealTimeData.push(this.realTimeMockRates[item])
       }
     })
 
-    this.filteredHistoryBySelectedRows = (intersectHistory.length > 0) ? newHistoryData : this.historyRates;
+    //this.filteredHistoryBySelectedRows = (intersectHistory.length > 0) ? newHistoryData : this.historyRates;
+    this.filteredRealTimeBySelectedRows = (intersectRealTime.length > 0) ? newRealTimeData : this.realTimeMockRates;
+
+    console.log('this.filteredRealTimeBySelectedRows', this.filteredRealTimeBySelectedRows)
 
     if(event.selected && intersect.length === 0 && newData.length === 0) return;
 
@@ -228,7 +299,7 @@ export class DashboardComponent implements OnInit {
 
   filter(): void {
 
-    //console.log('START filter currencies: ', this.currencies)
+    console.log('START filter currencies: ', this.currencies);
 
     let newData: any[] = this.currencies;
     let excludedColumns: string[] = this.columns.filter((column: ITdDataTableColumn) => {
