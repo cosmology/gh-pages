@@ -39,8 +39,9 @@
       <mat-card>
           <mat-card-title>
             <div layout="row" layout-align="start center">
+              <mat-icon>attach_money</mat-icon>
               <span *ngIf="!searchBox.searchVisible">
-                <span class="mat-title">Forex Currency Pairs List</span>
+                <span class="mat-title push-left">Forex Currency Pairs List</span>
               </span>
               <span *ngIf="searchBox.searchVisible">
                 <span *ngIf="selectedRows.length && selectable" class="mat-body-1">0 item(s) selected</span>
@@ -84,9 +85,11 @@
         <div flex-gt-sm="100">
           <mat-card>
             <mat-card-title>
-
               <div layout="row" layout-align="start center">
-                <span class="mat-title" flex>Historical Exchange Rates</span>
+                <mat-icon>history</mat-icon>
+                <span flex>
+                  <span class="mat-title push-left">Historical Exchange Rates</span>
+                </span>
                 <span [style.width.px]="100" layout="row" class="push-left-sm push-right mat-body-1">
                   <mat-form-field floatPlaceholder="never" flex>
                     <input matInput [max]="maxFromDate" readonly [(ngModel)]="dateFrom" [matDatepicker]="pickerFrom">
@@ -167,23 +170,10 @@
       <mat-card>
         <mat-card-title>
           <div layout="row" layout-align="start center">
-            <span class="mat-title" flex>In the News</span>
-            <!--<span [style.width.px]="100" layout="row" class="push-left-sm push-right mat-body-1">
-              <mat-form-field floatPlaceholder="never" flex>
-                <input matInput [max]="maxFromDate" readonly [(ngModel)]="dateFrom" [matDatepicker]="pickerFrom">
-                <mat-datepicker-toggle matSuffix matTooltip="Start date" [for]="pickerFrom"></mat-datepicker-toggle>
-                <mat-datepicker #pickerFrom [startAt]="dateFrom"></mat-datepicker>
-              </mat-form-field>
-
+            <mat-icon>insert_comment</mat-icon>
+            <span flex>
+              <span class="mat-title push-left">In the News</span>
             </span>
-            <span hide-xs class="mat-body-2 push-right"> to </span>
-            <span [style.width.px]="100" layout="row" class="mat-body-1">
-              <mat-form-field floatPlaceholder="never" flex>
-                <input matInput [max]="maxToDate" readonly [(ngModel)]="dateTo" [matDatepicker]="pickerTo">
-                <mat-datepicker-toggle matSuffix matTooltip="End date" [for]="pickerTo"></mat-datepicker-toggle>
-                <mat-datepicker #pickerTo [startAt]="dateTo"></mat-datepicker>
-              </mat-form-field>
-            </span>-->
             <span>
               <button mat-icon-button matTooltip="More" [mat-menu-trigger-for]="more">
                 <mat-icon>more_vert</mat-icon>
