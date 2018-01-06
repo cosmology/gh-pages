@@ -1,11 +1,10 @@
 import { Title } from '@angular/platform-browser';
 import { Component, OnInit, ChangeDetectorRef, EventEmitter, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatIconRegistry, MatDialog } from '@angular/material';
-import { DatePipe } from '@angular/common';
+import { MatIconRegistry } from '@angular/material';
 import { Router } from "@angular/router";
 import { historyRates, times } from './data';
-import { TdLoadingService, TdMediaService, TdDigitsPipe, TdLayoutManageListComponent, TdRotateAnimation } from '@covalent/core';
+import { TdLoadingService, TdMediaService, TdDigitsPipe, TdRotateAnimation } from '@covalent/core';
 
 // table
 import { TdDataTableService, TdDataTableSortingOrder, ITdDataTableSortChangeEvent, ITdDataTableColumn } from '@covalent/core';
@@ -35,7 +34,8 @@ export class DashboardComponent implements OnInit {
   // Chart
   historyRates: any[];
 
-  // options
+  // line, area
+  autoScale: boolean = true;
   showXAxis: boolean = true;
   showYAxis: boolean = true;
   gradient: boolean = false;
@@ -49,20 +49,17 @@ export class DashboardComponent implements OnInit {
   };
 
   // Timeframe
-  dateFrom: Date = new Date(new Date().getTime() - (2 * 60 * 60 * 24 * 1000));
-  dateTo: Date = new Date(new Date().getTime() - (1 * 60 * 60 * 24 * 1000));
-  maxFromDate: Date = new Date(new Date().getTime() - (1000 * 60 * 60 * 24 * 1000));
+  dateFrom: Date = new Date(new Date().getTime() - (1825 * 60 * 60 * 24 * 1000));
+  dateTo: Date = new Date(new Date().getTime());
+  maxFromDate: Date = new Date(new Date().getTime() - (3650 * 60 * 60 * 24 * 1000));
   maxToDate: Date = new Date(new Date().getTime());
-
-  // line, area
-  autoScale: boolean = true;
 
   currencies: Currency[] = [];
 
   // Table
   columns: ITdDataTableColumn[] = [
     { name: 'symbol',  label: 'Symbol', sortable: true, filter: true},
-    { name: 'price', label: 'Price (US$)', sortable: true, filter: true, numeric: true, format: DECIMAL_FORMAT },
+    { name: 'price', label: 'Price', sortable: true, filter: true, numeric: true, format: DECIMAL_FORMAT },
     { name: 'bid', label: 'Bid', sortable: true, filter: true, hidden: false, numeric: true },
     { name: 'ask', label: 'Ask', sortable: true, filter: true, numeric: true },
     { name: 'timestamp', label: 'Timestamp', sortable: true, filter: true, width: 350 },
@@ -83,8 +80,6 @@ export class DashboardComponent implements OnInit {
 
   constructor(
               private _titleService: Title,
-              private _productsService: ProductsService,
-              private _alertsService: AlertsService,
               private _forexService: ForexService,
               private _changeDetectorRef: ChangeDetectorRef,
               private _iconRegistry: MatIconRegistry,
@@ -96,7 +91,7 @@ export class DashboardComponent implements OnInit {
               public _itemsService: ItemsService,
 
               public media: TdMediaService,
-              public dialog: MatDialog,
+
               ) {
                 // Chart
                 this.historyRates = historyRates.map((group: any) => {

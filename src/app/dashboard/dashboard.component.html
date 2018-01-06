@@ -84,14 +84,34 @@
         <div flex-gt-sm="100">
           <mat-card>
             <mat-card-title>
-              <span class="mat-title">Historical Exchange Rates</span>
+
+              <div layout="row" layout-align="start center">
+                <span class="mat-title" flex>Historical Exchange Rates</span>
+                <span [style.width.px]="100" layout="row" class="push-left-sm push-right mat-body-1">
+                  <mat-form-field floatPlaceholder="never" flex>
+                    <input matInput [max]="maxFromDate" readonly [(ngModel)]="dateFrom" [matDatepicker]="pickerFrom">
+                    <mat-datepicker-toggle matSuffix matTooltip="Start date" [for]="pickerFrom"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerFrom [startAt]="dateFrom"></mat-datepicker>
+                  </mat-form-field>
+
+                </span>
+                <span hide-xs class="mat-body-2 push-right"> to </span>
+                <span [style.width.px]="100" layout="row" class="mat-body-1">
+                  <mat-form-field floatPlaceholder="never" flex>
+                    <input matInput [max]="maxToDate" readonly [(ngModel)]="dateTo" [matDatepicker]="pickerTo">
+                    <mat-datepicker-toggle matSuffix matTooltip="End date" [for]="pickerTo"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerTo [startAt]="dateTo"></mat-datepicker>
+                  </mat-form-field>
+                </span>
+              </div>
             </mat-card-title>
             <mat-divider></mat-divider>
             <div class="chart-height push-top push-right-sm">
               <ngx-charts-line-chart
                 [scheme]="colorScheme"
                 [results]="filteredHistoryBySelectedRows"
-                [gradient]=gradient
+                [gradient]="gradient"
+                [autoScale]="autoScale"
                 [xAxis]="showXAxis"
                 [yAxis]="showYAxis"
                 [showXAxisLabel]="showXAxisLabel"
@@ -148,6 +168,22 @@
         <mat-card-title>
           <div layout="row" layout-align="start center">
             <span class="mat-title" flex>In the News</span>
+            <!--<span [style.width.px]="100" layout="row" class="push-left-sm push-right mat-body-1">
+              <mat-form-field floatPlaceholder="never" flex>
+                <input matInput [max]="maxFromDate" readonly [(ngModel)]="dateFrom" [matDatepicker]="pickerFrom">
+                <mat-datepicker-toggle matSuffix matTooltip="Start date" [for]="pickerFrom"></mat-datepicker-toggle>
+                <mat-datepicker #pickerFrom [startAt]="dateFrom"></mat-datepicker>
+              </mat-form-field>
+
+            </span>
+            <span hide-xs class="mat-body-2 push-right"> to </span>
+            <span [style.width.px]="100" layout="row" class="mat-body-1">
+              <mat-form-field floatPlaceholder="never" flex>
+                <input matInput [max]="maxToDate" readonly [(ngModel)]="dateTo" [matDatepicker]="pickerTo">
+                <mat-datepicker-toggle matSuffix matTooltip="End date" [for]="pickerTo"></mat-datepicker-toggle>
+                <mat-datepicker #pickerTo [startAt]="dateTo"></mat-datepicker>
+              </mat-form-field>
+            </span>-->
             <span>
               <button mat-icon-button matTooltip="More" [mat-menu-trigger-for]="more">
                 <mat-icon>more_vert</mat-icon>
