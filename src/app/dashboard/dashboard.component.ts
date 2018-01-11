@@ -57,8 +57,8 @@ export class DashboardComponent implements OnInit {
   // Timeframe
   dateFrom: Date = new Date(new Date().getTime());
   dateTo: Date = new Date(new Date().getTime());
-  maxFromDate: Date =  new Date(new Date().getTime());
-  maxToDate: Date = new Date(new Date().getTime() - (365 * 60 * 60 * 24 * 1000));
+  maxFromDate: Date =  new Date(new Date().getTime() /*- (365 * 60 * 60 * 24 * 1000)*/);
+  maxToDate: Date = new Date(new Date().getTime());
 
   currencies: Currency[] = [];
 
@@ -136,7 +136,7 @@ export class DashboardComponent implements OnInit {
                 // mimic random live stream
                 this.intervalId = setInterval(() => {
                   this.filteredRealTimeBySelectedRows = [...this.addRandomValue()];
-                }, 5000);
+                }, 4000);
   }
 
   addRandomValue() {
@@ -202,28 +202,48 @@ export class DashboardComponent implements OnInit {
   }
 
   addDatepickerEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    console.log('addDatepickerEvent ', event.target.value)
 
     this.datePickerEvents.push(`${type}: ${event.target.value}`);
 
-    console.log(this.datePickerEvents)
+    let newData:any[] = [];
+
+    let dateFrom = moment(this.dateFrom).startOf('day').format('DD-MM-YYYY HH:mm:ss');
+    let dateTo = moment(this.dateTo).endOf('day').format('DD-MM-YYYY HH:mm:ss');
+
+    console.log('dateFrom ', this.dateFrom)
+    console.log('dateTo ', this.dateTo)
+
+    this.filteredNewsBySelectedRows = this.items;
+
+    Object.keys(this.filteredNewsBySelectedRows).map((item) => {
+
+      let created  = moment(this.filteredNewsBySelectedRows[item].created).format('DD-MM-YYYY HH:mm:ss');
+
+      if(created >= dateFrom && created <= dateTo) {
+        newData.push(this.filteredNewsBySelectedRows[item])
+      }
+
+    });
+
+    this.filteredNewsBySelectedRows = newData;
+
   }
 
   sort(sortEvent: ITdDataTableSortChangeEvent): void {
-    console.log('sort ITdDataTableSortChangeEvent ', sortEvent)
+    //console.log('sort ITdDataTableSortChangeEvent ', sortEvent)
     this.sortBy = sortEvent.name;
     this.sortOrder = sortEvent.order;
     this.filter();
   }
 
   search(searchTerm: string): void {
-    console.log('search searchTerm ', searchTerm)
+    //console.log('search searchTerm ', searchTerm)
     this.searchTerm = searchTerm;
     this.filter();
   }
 
   page(pagingEvent: IPageChangeEvent): void {
-    console.log('page IPageChangeEvent ', pagingEvent)
+    //console.log('page IPageChangeEvent ', pagingEvent)
     this.fromRow = pagingEvent.fromRow;
     this.currentPage = pagingEvent.page;
     this.pageSize = pagingEvent.pageSize;
@@ -231,8 +251,6 @@ export class DashboardComponent implements OnInit {
   }
 
   rowSelected(event: any): void {
-
-    console.log('rowSelected ', event)
 
     let newData: any[] = [];
     let newHistoryData: any[] = [];
@@ -250,13 +268,12 @@ export class DashboardComponent implements OnInit {
     let c = Object.keys(this.selectedRows).map((item) => this.selectedRows[item].symbol);
     let d = Object.keys(this.realTimeMockRates).map((item) => this.realTimeMockRates[item].name);
 
-    //let d = Object.keys(this.historyRates).map((item) => this.historyRates[item].name);
 
     //let intersectHistory = ArrayUtils.intersect(c,d);
     let intersectRealTime = ArrayUtils.intersect(c,d);
 
-    console.log('c ', intersectRealTime)
-    console.log('d ', intersectRealTime)
+    //console.log('c ', intersectRealTime)
+    //console.log('d ', intersectRealTime)
     console.log('intersectRealTime ', intersectRealTime)
 
     Object.keys(this.items).map((item) => {
@@ -273,8 +290,6 @@ export class DashboardComponent implements OnInit {
 
     //this.filteredHistoryBySelectedRows = (intersectHistory.length > 0) ? newHistoryData : this.historyRates;
     this.filteredRealTimeBySelectedRows = (intersectRealTime.length > 0) ? newRealTimeData : this.realTimeMockRates;
-
-    console.log('this.filteredRealTimeBySelectedRows', this.filteredRealTimeBySelectedRows)
 
     if(event.selected && intersect.length === 0 && newData.length === 0) return;
 
@@ -298,8 +313,6 @@ export class DashboardComponent implements OnInit {
   }
 
   filter(): void {
-
-    console.log('START filter currencies: ', this.currencies);
 
     let newData: any[] = this.currencies;
     let excludedColumns: string[] = this.columns.filter((column: ITdDataTableColumn) => {
@@ -327,7 +340,7 @@ export class DashboardComponent implements OnInit {
 
     this.filteredData = newData;
 
-    //console.log('END filter filteredData: ', this.filteredData)
+    console.log('END filter filteredData: ', this.filteredData)
     //console.log('END filter currencies: ', this.currencies)
   }
 

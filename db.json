@@ -26,7 +26,7 @@
       "symbol": "GBP/USD",
       "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
       "icon": "description",
-      "created": "07/13/2017 11:05 AM"
+      "created": "2018-01-07T14:33:28.090Z"
     },
     {
       "id": "3",
@@ -34,7 +34,7 @@
       "symbol": "EUR/USD",
       "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
       "icon": "description",
-      "created": "06/15/2016 09:02 AM"
+      "created": "2018-01-08T14:33:28.090Z"
     },
     {
       "id": "4",
@@ -42,7 +42,7 @@
       "symbol": "GBP/USD",
       "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
       "icon": "description",
-      "created": "07/13/2017 11:05 AM"
+      "created": "2018-01-09T14:33:28.090Z"
     },
     {
       "id": "5",
@@ -50,7 +50,7 @@
       "symbol": "EUR/USD",
       "description": "The White House has said the tax overhaul will stimulate the economy and lift inflation; stronger growth could lead the Federal Reserve to raise rates at a faster clip, increasing the dollar’s appeal to yield-seeking investors.",
       "icon": "description",
-      "created": "06/15/2016 09:02 AM"
+      "created": "2018-01-01T14:33:28.090Z"
     },
     {
       "name": "Norweigan krone on the rise",
@@ -75,6 +75,22 @@
       "id": "ca897056-f2b5-43ad-af16-637b3013e986",
       "icon": "description",
       "created": "2018-01-05T20:41:26.595Z"
+    },
+    {
+      "name": "GBP/USD Monthly Range-Break",
+      "symbol": "GBP/USD",
+      "description": "SomeNotes: A closer look at price action highlights a proposed pitchfork extending off the highs with price rebounding off the 50-line earlier today. We’ll favor fading strength while below the weekly open at 1.3575 with a break below 1.3456 shifting the focus towards confluence support at the median-line / 38.2% retracement at 1.3389.\n\nA breach of the objective weekly opening-range highs / 1.3589 would keep the broader long-bias in play with such a scenario targeting subsequent resistance objectives at the 2017 high at 1.3658 and the Brexit gap at 1.3675. Bottom line: the risk is lower in sterling but ultimately a larger setback would offer more favorable long-entries while within the broader uptrend. Look for a break / close of the monthly opening-range to get things going.",
+      "id": "5eaa6329-0e3d-47ec-a16c-7aa9ecf7d652",
+      "icon": "description",
+      "created": "2018-01-11T02:03:56.673Z"
+    },
+    {
+      "name": "Testing",
+      "symbol": "NOK/USD",
+      "description": "testing decription",
+      "id": "e3df8b34-9a82-455b-bdc0-35536d8d19fc",
+      "icon": "description",
+      "created": "2018-01-11T03:02:36.755Z"
     }
   ],
   "alerts": [
