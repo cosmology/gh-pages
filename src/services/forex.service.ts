@@ -16,7 +16,10 @@ import 'rxjs/add/operator/mergeMap';
 import { HttpInterceptorService } from '@covalent/http';
 import { TextUtils } from '../utils/text-utils.service'
 
+const API_KEY = environment.forexApiKey;
 const API_URL = environment.forexApi;
+const QUOTES = `${API_URL}/quotes?pairs=EURUSD,GBPUSD,AUDUSD,NOKUSD,JPYUSD,CHFUSD&api_key=${API_KEY}`;
+const MARKET_STATUS = `${API_URL}/market_status?api_key=${API_KEY}`;
 
 export interface ICurrency {
   symbol: '';
@@ -28,8 +31,6 @@ export interface ICurrency {
 
 @Injectable()
 export class ForexService {
-
-  static currencies: Currency[] = [];
 
   private _currencies:Currency[] = [];
 
@@ -49,7 +50,7 @@ export class ForexService {
   public getForexData(): Observable<Currency[]> {
 
     return this._http
-      .get(API_URL)
+      .get(QUOTES)
       .map(response => {
         const currencies = response.json();
 
@@ -84,6 +85,15 @@ export class ForexService {
             currency.timestamp = new Date(currency.timestamp*1000).toLocaleString();
             return new Currency(currency)}
         );
+      })
+      .catch(this.handleError);
+  }
+
+  public checkMarketStatus(): Observable<boolean> {
+    return this._http
+      .get(MARKET_STATUS)
+      .map(response => {
+        return response.json().market_is_open;
       })
       .catch(this.handleError);
   }

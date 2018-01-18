@@ -6,6 +6,7 @@
   <div td-toolbar-content layout="row" layout-align="center center" flex>
     <span>Currency Exchange</span>
     <span flex></span>
+    <mat-icon ngClass="{{(marketOpen) ? 'lime600' : ''}}" matTooltip="Market {{(marketOpen) ? 'open' : 'closed'}}">lens</mat-icon>
     <span>
       <button mat-icon-button matTooltip="Alerts" [matMenuTriggerFor]="notificationsMenu">
         <td-notification-count color="accent" [notifications]="4">
@@ -192,7 +193,7 @@
             </span>
           </div>
         </mat-card-title>
-        <mat-card-subtitle>Recent currency exchange articles for selected paired markets</mat-card-subtitle>
+        <!--<mat-card-subtitle>Recent currency exchange articles for selected paired markets</mat-card-subtitle>-->
         <mat-divider></mat-divider>
         <mat-nav-list class="will-load item-list">
           <ng-template tdLoading="items.load">
@@ -215,6 +216,7 @@
             </ng-template>
           </ng-template>
         </mat-nav-list>
+        <!--<td-json-formatter [data]="filteredNewsBySelectedRows" [levelsOpen]="1"></td-json-formatter>-->
       </mat-card>
     </div>
   </div>

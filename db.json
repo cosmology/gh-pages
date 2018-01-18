@@ -83,14 +83,6 @@
       "id": "5eaa6329-0e3d-47ec-a16c-7aa9ecf7d652",
       "icon": "description",
       "created": "2018-01-11T02:03:56.673Z"
-    },
-    {
-      "name": "Testing",
-      "symbol": "NOK/USD",
-      "description": "testing decription",
-      "id": "e3df8b34-9a82-455b-bdc0-35536d8d19fc",
-      "icon": "description",
-      "created": "2018-01-11T03:02:36.755Z"
     }
   ],
   "alerts": [

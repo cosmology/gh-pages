@@ -5,7 +5,7 @@ import { MatIconRegistry } from '@angular/material';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { Router } from "@angular/router";
 import { historyRates, realTimeMockRates } from './data';
-import { TdLoadingService, TdMediaService, TdDigitsPipe, TdRotateAnimation } from '@covalent/core';
+import { TdLoadingService, TdMediaService, TdDigitsPipe, TdRotateAnimation, CovalentJsonFormatterModule } from '@covalent/core';
 import * as moment from 'moment';
 
 // table
@@ -32,6 +32,7 @@ const DECIMAL_FORMAT: (v: any) => any = (v: number) => v.toFixed(3);
 export class DashboardComponent implements OnInit {
 
   items: Item[];
+  marketOpen: boolean = false;
 
   // Chart
   historyRates: any[];
@@ -181,6 +182,8 @@ export class DashboardComponent implements OnInit {
           });
       });
 
+    this.checkMarketStatus();
+
     this._titleService.setTitle('Covalent Currency Exchange Demo');
 
     this._loadingService.register('items.load');
@@ -198,6 +201,14 @@ export class DashboardComponent implements OnInit {
           this._loadingService.resolve('items.load');
         }, 750);
       });
+    });
+  }
+
+  checkMarketStatus(){
+
+    this._forexService.checkMarketStatus()
+      .subscribe((response) => {
+        this.marketOpen = response
     });
   }
 

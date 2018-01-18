@@ -5,6 +5,7 @@
 import { MOCK_API } from '../config/api.config';
 export const environment = {
   production: false,
-  forexApi: 'https://forex.1forge.com/1.0.2/quotes?pairs=EURUSD,GBPUSD,AUDUSD,NOKUSD,JPYUSD,CHFUSD&api_key=9k06dL4KzHWa99GWiDgd9yx60r2wrgkh',
+  forexApi: 'https://forex.1forge.com/1.0.2',
+  forexApiKey: '9k06dL4KzHWa99GWiDgd9yx60r2wrgkh',
   host: 'http://localhost:'
 };
