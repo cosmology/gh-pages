@@ -21,6 +21,7 @@
     "webdriver-update": "bash ./node_modules/.bin/webdriver-manager update",
     "test": "ng test --code-coverage --single-run",
     "test:watch": "ng test --code-coverage",
+    "deploy": "git push origin master && git push heroku master",
     "ghpages-deploy": "ng build --base-href /gh-pages/ --prod --sourcemap=false && bash scripts/ghpages-deploy"
   },
   "engines": {
