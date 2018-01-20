@@ -32,7 +32,6 @@
   "license": "MIT",
   "author": "Teradata UX team and Ivan Prokic",
   "contributors": [
-    "Kyle Ledbetter <kyle.ledbetter@teradata.com>",
     "Ivan Prokic <ivanprokic@gmail.com>"
   ],
   "dependencies": {

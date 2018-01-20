@@ -1,4 +1,4 @@
-import { NgModule, Type } from '@angular/core';
+import { NgModule, Type, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule, Title }  from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -17,6 +17,8 @@ import { routedComponents, AppRoutingModule } from './app-routing.module';
 
 import { SharedModule } from './shared/shared.module';
 
+import { AppLoadModule } from '../app/loader/loader.module'
+
 const httpInterceptorProviders: Type<any>[] = [
   RequestInterceptor,
 ];
@@ -34,6 +36,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     imports: [
       AppRoutingModule,
       BrowserModule,
+      AppLoadModule,
       BrowserAnimationsModule,
       SharedModule,
       CovalentHttpModule.forRoot({
@@ -49,8 +52,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
       NgxChartsModule,
     ],
   providers: [
-    httpInterceptorProviders,
-  ],
+    httpInterceptorProviders
+    ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

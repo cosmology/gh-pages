@@ -5,7 +5,6 @@ const compression = require('compression');
 
 // json server
 var jsonServer = require('json-server');
-const { exec } = require('child_process');
 var server = jsonServer.create();
 var router = jsonServer.router('db.json');
 var middlewares = jsonServer.defaults();
@@ -13,17 +12,6 @@ var middlewares = jsonServer.defaults();
 // Set port (default: 3000). For Heroku, we need to use
 // the port set by the environment variable $PORT
 const port = process.env.PORT || 3000;
-
-/*const command = `json-server --watch db.json --port ${4000}`;
-
-exec(command, (err, stdout, stderr) => {
-  if (err) {
-    console.log('Error running exec', err);
-    return;
-  }
-  console.log('stdout:', stdout);
-  console.log('stderr:', stderr);
-});*/
 
 server.use(middlewares);
 server.use(router);

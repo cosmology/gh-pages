@@ -2,7 +2,6 @@
  * Created by ivanprokic on 12/24/17.
  */
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
 import { Currency } from '../app/models/currency'
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -14,12 +13,9 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/mergeMap';
 import { HttpInterceptorService } from '@covalent/http';
-import { TextUtils } from '../utils/text-utils.service'
+import { TextUtils } from '../utils/text-utils.service';
+import { APP_SETTINGS } from '../assets/config/settings';
 
-const API_KEY = environment.forexApiKey;
-const API_URL = environment.forexApi;
-const QUOTES = `${API_URL}/quotes?pairs=EURUSD,GBPUSD,AUDUSD,NOKUSD,JPYUSD,CHFUSD&api_key=${API_KEY}`;
-const MARKET_STATUS = `${API_URL}/market_status?api_key=${API_KEY}`;
 
 export interface ICurrency {
   symbol: '';
@@ -31,6 +27,9 @@ export interface ICurrency {
 
 @Injectable()
 export class ForexService {
+
+  private _apiUrl:string;
+  private _apiKey:string;
 
   private _currencies:Currency[] = [];
 
@@ -49,8 +48,10 @@ export class ForexService {
 
   public getForexData(): Observable<Currency[]> {
 
+    console.log('FOREX SERVICE getForexData APP_SETTINGS ', APP_SETTINGS)
+
     return this._http
-      .get(QUOTES)
+      .get(`${APP_SETTINGS.apiBaseUrl}/quotes?pairs=EURUSD,GBPUSD,AUDUSD,NOKUSD,JPYUSD,CHFUSD&api_key=${APP_SETTINGS.apiBaseKey}`)
       .map(response => {
         const currencies = response.json();
 
@@ -91,7 +92,7 @@ export class ForexService {
 
   public checkMarketStatus(): Observable<boolean> {
     return this._http
-      .get(MARKET_STATUS)
+      .get(`${APP_SETTINGS.apiBaseUrl}/market_status?api_key=${APP_SETTINGS.apiBaseKey}`)
       .map(response => {
         return response.json().market_is_open;
       })

@@ -1,7 +1,7 @@
 import { Component, ChangeDetectorRef, AfterViewInit, ViewChild, TemplateRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatIconRegistry, MatDialog } from '@angular/material';
-import { TdMediaService, TdDigitsPipe, TdLayoutManageListComponent, TdRotateAnimation } from '@covalent/core';
+import { MatIconRegistry } from '@angular/material';
+import { TdMediaService, TdLayoutManageListComponent, TdRotateAnimation } from '@covalent/core';
 
 @Component({
   selector: 'my-app',
@@ -12,7 +12,7 @@ import { TdMediaService, TdDigitsPipe, TdLayoutManageListComponent, TdRotateAnim
   ],
 })
 
-export class AppComponent implements AfterViewInit  {
+export class AppComponent implements AfterViewInit {
   @ViewChild('manageList') manageList: TdLayoutManageListComponent;
   @ViewChild('dialogContent') template: TemplateRef<any>;
 

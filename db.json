@@ -83,6 +83,14 @@
       "id": "5eaa6329-0e3d-47ec-a16c-7aa9ecf7d652",
       "icon": "description",
       "created": "2018-01-11T02:03:56.673Z"
+    },
+    {
+      "name": "Dollar falling again",
+      "symbol": "EUR/USD",
+      "description": "Record lows in last two years for dropping dollar",
+      "id": "b2af1af7-ddc3-48cf-8969-9b419b71fecf",
+      "icon": "description",
+      "created": "2018-01-20T19:22:46.560Z"
     }
   ],
   "alerts": [

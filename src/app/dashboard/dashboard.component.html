@@ -6,7 +6,9 @@
   <div td-toolbar-content layout="row" layout-align="center center" flex>
     <span>Currency Exchange</span>
     <span flex></span>
-    <mat-icon ngClass="{{(marketOpen) ? 'lime600' : ''}}" matTooltip="Market {{(marketOpen) ? 'open' : 'closed'}}">lens</mat-icon>
+    <button mat-icon-button>
+      <mat-icon ngClass="{{(marketOpen) ? 'lime600' : ''}}" matTooltip="Market {{(marketOpen) ? 'open' : 'closed'}}">lens</mat-icon>
+    </button>
     <span>
       <button mat-icon-button matTooltip="Alerts" [matMenuTriggerFor]="notificationsMenu">
         <td-notification-count color="accent" [notifications]="4">

@@ -5,7 +5,8 @@
 import { MOCK_API } from '../config/api.config';
 export const environment = {
   production: false,
-  forexApi: 'https://forex.1forge.com/1.0.2',
-  forexApiKey: '9k06dL4KzHWa99GWiDgd9yx60r2wrgkh',
+  apiBaseUrl: 'https://forex.1forge.com/1.0.2',
+  apiBaseKey: '9k06dL4KzHWa99GWiDgd9yx60r2wrgkh',
+  configFile: 'assets/config/config.json',
   host: 'http://localhost:'
 };

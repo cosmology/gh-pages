@@ -3,7 +3,6 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-import { Router } from "@angular/router";
 import { historyRates, realTimeMockRates } from './data';
 import { TdLoadingService, TdMediaService, TdDigitsPipe, TdRotateAnimation, CovalentJsonFormatterModule } from '@covalent/core';
 import * as moment from 'moment';
@@ -96,7 +95,6 @@ export class DashboardComponent implements OnInit {
               private _dataTableService: TdDataTableService,
               private _domSanitizer: DomSanitizer,
               private _loadingService: TdLoadingService,
-              private _router: Router,
 
               public _itemsService: ItemsService,
 
@@ -125,6 +123,7 @@ export class DashboardComponent implements OnInit {
                 this._iconRegistry.addSvgIconInNamespace('assets', 'covalent',
                 this._domSanitizer.bypassSecurityTrustResourceUrl
                 ('https://raw.githubusercontent.com/Teradata/covalent-quickstart/develop/src/assets/icons/covalent.svg'));
+
 
                 this._forexService.getForexData()
                   .subscribe((currencies) => {
