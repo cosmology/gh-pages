@@ -25,18 +25,16 @@
       <form [formGroup]="myGroup" (ngSubmit)="addArticle(myGroup.value)">
         <mat-card>
 
-          <div layout-gt-xs="row">
-            <div class="pad example-container">
-              <mat-form-field>
-                <input matInput placeholder="Article name (30 max)" maxlength="30" #inputHint
-                  type="text"
-                  class="form-control"
-                  formControlName="name"
-                  required>
-                <mat-hint align="end">{{inputHint.value.length}} / 30</mat-hint>
-                <mat-error *ngIf="nameInput.invalid">{{getArticleErrorMessage()}}</mat-error>
-              </mat-form-field>
-            </div>
+          <div class="pad example-container">
+            <mat-form-field>
+              <input matInput placeholder="Article name (200 max)" maxlength="200" #inputHint
+                type="text"
+                class="form-control"
+                formControlName="name"
+                required>
+              <mat-hint align="end">{{inputHint.value.length}} / 200</mat-hint>
+              <mat-error *ngIf="nameInput.invalid">{{getArticleErrorMessage()}}</mat-error>
+            </mat-form-field>
           </div>
 
           <div class="pad">
